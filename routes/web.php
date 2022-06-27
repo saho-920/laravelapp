@@ -64,4 +64,7 @@ Route::get('jissyu', 'JissyuController@index');
 Route::get('jissyu2', 'jissyu3_2Controller@index');
 Route::post('jissyu2', 'jissyu3_2Controller@post');
 Route::get('jissyu3_3', 'jissyu3_3Controller@index');
-
+// 問題５
+Route::get('jissyu3_2', 'Chapter3_2Controller@index');
+// 岡山情報
+Route::get('ohara','OharaController@index');
