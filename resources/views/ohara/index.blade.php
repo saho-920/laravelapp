@@ -1,21 +1,21 @@
-@extends('layouts.parent')
+@extends('layouts2.parent')
 
 @section('title')
     岡山情報ITクリエイター専門学校
 @endsection
 
 @section('header')
-    @component('components.header')
-        @___(9)____ ('h_contents')
+    @component('components2.header')
+        @slot ('h_contents')
             岡山
-        @___(10)____
+        @endslot
     @endcomponent
 @endsection
 
 @section('content')
-@___(11)____
+@parent
     <ul>
-    @each ('___(12)____', [
+    @each ('components2.items', [
                     'ITスペシャリストシステム開発コース', 
                     'ITスペシャリストネットワークセキュリティコース', 
                     'IT公務員コース'],
