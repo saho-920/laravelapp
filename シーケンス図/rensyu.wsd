@@ -1,0 +1,14 @@
+@startuml 練習
+actor ユーザー
+boundary ブラウザ
+control web.php 
+control jissyu3_3controller
+boundary jissyu3_3.index.blade.php
+boundary layouts.jissyu.blade.php
+
+ユーザー->ブラウザ:該当ページをリクエスト
+ブラウザ->web.php:GET
+web.php->jissyu3_3controller:@index
+jissyu3_3controller->jissyu3_3.index.blade.php:
+jissyu3_3.index.blade.php->layouts.jissyu.blade.php:@extends
+jissyu3_3.index.blade.php<--layouts.jissyu.blade.php:
