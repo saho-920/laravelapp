@@ -10,3 +10,4 @@
       <p class="menu_title">{{$menu_title}}</p>
       <p class="menu_content">{{$menu_content}}</p>
    </div>
+

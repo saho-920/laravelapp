@@ -69,3 +69,9 @@ Route::get('jissyu3_3', 'jissyu3_3Controller@index');
 Route::get('jissyu3_2', 'Chapter3_2Controller@index');
 // 岡山情報
 Route::get('ohara','OharaController@index');
+
+// テスト
+Route::get('kouka1_1', 'Kouka1_1Controller@index');
+
+Route::get('kouka1_2', 'Kouka1_2Controller@index');
+Route::post('kouka1_2', 'Kouka1_2Controller@post');
