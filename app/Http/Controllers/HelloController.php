@@ -76,6 +76,13 @@ public function index(Request $request)
     DB::delete('delete from people where id = :id', $param);
     return redirect('/hello');
     }
+// 5-19
+    public function show(Request $request)
+{
+   $id = $request->id;
+   $item = DB::table('people')->where('id', $id)->first();
+   return view('hello.show', ['item' => $item]);
+}
 
 
 
