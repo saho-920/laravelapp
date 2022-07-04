@@ -77,11 +77,14 @@ public function index(Request $request)
     return redirect('/hello');
     }
 // 5-19
-    public function show(Request $request)
+public function show(Request $request)
 {
-   $id = $request->id;
-   $item = DB::table('people')->where('id', $id)->first();
-   return view('hello.show', ['item' => $item]);
+   $min = $request->min;
+   $max = $request->max;
+   $items = DB::table('people')
+       ->whereRaw('age >= ? and age <= ?',
+        [$min, $max])->get();
+   return view('hello.show', ['items' => $items]);
 }
 
 
