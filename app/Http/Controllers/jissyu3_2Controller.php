@@ -23,6 +23,7 @@ class Jissyu3_2Controller extends Controller
         ];
         return view('jissyu3_2.output', ['data'=>$data]);
         // $dataは普通の配列。outputに渡すためには連想配列で送らないといけない。
+        // $data自体は連想配列。ビューと対応させないといけない。
     }
 
 
