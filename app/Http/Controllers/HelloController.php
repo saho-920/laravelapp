@@ -12,7 +12,7 @@ class HelloController extends Controller
 // データの表示
 public function index(Request $request)
 {
-   $items = DB::table('people')->get();
+   $items = DB::table('people')->orderBy('age', 'asc')->get();
    return view('hello.index', ['items' => $items]);
 }
     
@@ -76,14 +76,14 @@ public function index(Request $request)
     DB::delete('delete from people where id = :id', $param);
     return redirect('/hello');
     }
-// 5-19
+// 5-26
 public function show(Request $request)
 {
-   $min = $request->min;
-   $max = $request->max;
+   $page = $request->page;
    $items = DB::table('people')
-       ->whereRaw('age >= ? and age <= ?',
-        [$min, $max])->get();
+       ->offset($page * 3)
+       ->limit(3)
+       ->get();
    return view('hello.show', ['items' => $items]);
 }
 
