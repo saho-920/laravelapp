@@ -2210,7 +2210,7 @@ public function search(Request $request)
 
 
 リスト6-15
-// use Illuminate\Database\Eloquent\Builder;  を追加
+//   を追加
 
 protected static function boot()
 {
