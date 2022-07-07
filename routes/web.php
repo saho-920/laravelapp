@@ -78,6 +78,9 @@ Route::get('person', 'PersonController@index');
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
 
+Route::get('person/add', 'PersonController@add');
+Route::post('person/add', 'PersonController@create');
+
 // ------実習用-------
 Route::get('jissyu', 'JissyuController@index');
 
