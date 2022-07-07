@@ -7,18 +7,24 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Person extends Model
 {
-    public function getData()
-{
-   return $this->id . ': ' . $this->name . ' (' . $this->age . ')';
-}
-public function scopeAgeGreaterThan($query, $n)
-{
-   return $query->where('age','>=', $n);
-}
+   protected $guarded = array('id');
 
-public function scopeAgeLessThan($query, $n)
-{
-   return $query->where('age', '<=', $n);
+   public static $rules = array(
+      'name' => 'required',
+      'mail' => 'email',
+      'age' => 'integer|min:0|max:150'
+   );
+
+   // getDataは残しておく
+   public function getData()
+   {
+      return $this->id . ': ' . $this->name . ' (' . $this->age . ')';
+   }
+   public function boards()
+   {
+      return $this->hasMany('App\Board');
+   }
+   
 }
 
 // protected static function boot()
@@ -30,4 +36,3 @@ public function scopeAgeLessThan($query, $n)
 //    });
 // }
 
-}
