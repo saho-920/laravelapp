@@ -73,3 +73,18 @@ Route::get('ohara','OharaController@index');
 // 5_1
 Route::get('jissyu10', 'Jissyu5_1Controller@index');
 Route::get('jissyu10/show', 'Jissyu5_1Controller@show');
+
+// 5_2
+// 表示
+Route::get('jissyu11', 'Jissyu5_2Controller@index');
+Route::get('jissyu11/show', 'Jissyu5_2Controller@show');
+// 追加
+Route::get('jissyu11/add', 'jissyu5_2Controller@add');
+Route::post('jissyu11/create', 'Jissyu5_2Controller@create');
+// 更新
+Route::get('jissyu11/edit', 'Jissyu5_2Controller@edit');
+Route::post('jissyu11/update', 'Jissyu5_2Controller@update');
+// 削除
+Route::get('jissyu11/del', 'Jissyu5_2Controller@del');
+Route::post('jissyu11/remove', 'Jissyu5_2Controller@remove');
+
