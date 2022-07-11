@@ -55,7 +55,8 @@ Route::get('/', function () {
 //    ->middleware(HelloMiddleware::class);
 
 // トップページの表示
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController@index')
+    ->middleware('auth');
 Route::post('hello', 'HelloController@post');
 
 // データの挿入
@@ -104,6 +105,10 @@ Route::get('hello/rest', 'HelloController@rest');
 Route::get('hello/session', 'HelloController@ses_get');
 Route::post('hello/session', 'HelloController@ses_put');
 
+// ログイン
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
+
 // ------実習用-------
 Route::get('jissyu', 'JissyuController@index');
 
@@ -114,3 +119,7 @@ Route::get('jissyu3_3', 'jissyu3_3Controller@index');
 Route::get('jissyu3_2', 'Chapter3_2Controller@index');
 // 岡山情報
 Route::get('ohara','OharaController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
