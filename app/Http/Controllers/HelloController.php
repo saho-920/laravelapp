@@ -10,13 +10,20 @@ use App\Person;
 class HelloController extends Controller
 {
 
-// データの表示
-public function index(Request $request)
-{
-   $items = DB::table('people')->simplePaginate(5);
-   return view('hello.index', ['items' => $items]);
-}
-    
+   public function index(Request $request)
+   {
+      if(isset($request->sort)){
+         $sort = $request->sort;
+      }else{
+         $sort='age';
+      }
+      
+      $items = Person::orderBy($sort, 'asc')
+         ->simplePaginate(5);
+      $param = ['items' => $items, 'sort' => $sort];
+      return view('hello.index', $param);
+   }
+       
 
     public function post(HelloRequest $request)
     {
