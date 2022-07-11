@@ -19,7 +19,7 @@ class HelloController extends Controller
       }
       
       $items = Person::orderBy($sort, 'asc')
-         ->simplePaginate(5);
+         ->Paginate(5);
       $param = ['items' => $items, 'sort' => $sort];
       return view('hello.index', $param);
    }
