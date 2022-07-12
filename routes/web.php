@@ -55,7 +55,8 @@ Route::get('/', function () {
 //    ->middleware(HelloMiddleware::class);
 
 // トップページの表示
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController@index')
+    ->middleware('auth');
 Route::post('hello', 'HelloController@post');
 
 // データの挿入
@@ -96,6 +97,17 @@ Route::get('board', 'BoardController@index');
 Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
 
+// REST 
+Route::resource('rest', 'RestappController');
+
+Route::get('hello/rest', 'HelloController@rest');
+
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
+// ログイン
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
 
 // ------実習用-------
 Route::get('jissyu', 'JissyuController@index');
@@ -109,6 +121,7 @@ Route::get('jissyu3_2', 'Chapter3_2Controller@index');
 // 岡山情報
 Route::get('ohara','OharaController@index');
 
+<<<<<<< HEAD
 // 5_1
 Route::get('jissyu10', 'Jissyu5_1Controller@index');
 Route::get('jissyu10/show', 'Jissyu5_1Controller@show');
@@ -127,3 +140,8 @@ Route::post('jissyu11/update', 'Jissyu5_2Controller@update');
 Route::get('jissyu11/del', 'Jissyu5_2Controller@del');
 Route::post('jissyu11/remove', 'Jissyu5_2Controller@remove');
 
+=======
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> text
