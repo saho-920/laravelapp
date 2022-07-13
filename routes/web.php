@@ -54,9 +54,60 @@ Route::get('/', function () {
 // Route::get('hello', 'HelloController@index')
 //    ->middleware(HelloMiddleware::class);
 
-Route::get('hello', 'HelloController@index');
+// トップページの表示
+Route::get('hello', 'HelloController@index')
+    ->middleware('auth');
 Route::post('hello', 'HelloController@post');
 
+// データの挿入
+Route::get('hello/add', 'HelloController@add');
+Route::post('hello/add', 'HelloController@create');
+
+// データの更新
+Route::get('hello/edit', 'HelloController@edit');
+Route::post('hello/edit', 'HelloController@update');
+
+// データの削除
+Route::get('hello/del', 'HelloController@del');
+Route::post('hello/del', 'HelloController@remove');
+
+Route::get('hello/show', 'HelloController@show');
+
+// personクラス　
+Route::get('person', 'PersonController@index');
+ 
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');
+
+// 追加
+Route::get('person/add', 'PersonController@add');
+Route::post('person/add', 'PersonController@create');
+
+// 更新
+Route::get('person/edit', 'PersonController@edit');
+Route::post('person/edit', 'PersonController@update');
+
+// 削除
+Route::get('person/del', 'PersonController@delete');
+Route::post('person/del', 'PersonController@remove');
+
+// Board
+Route::get('board', 'BoardController@index');
+
+Route::get('board/add', 'BoardController@add');
+Route::post('board/add', 'BoardController@create');
+
+// REST 
+Route::resource('rest', 'RestappController');
+
+Route::get('hello/rest', 'HelloController@rest');
+
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
+// ログイン
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
 
 // ------実習用-------
 Route::get('jissyu', 'JissyuController@index');
@@ -97,4 +148,8 @@ Route::get('jissyu14/edit', 'Jissyu6_3Controller@edit');
 Route::post('jissyu14/update', 'Jissyu6_3Controller@update');
 Route::get('jissyu14/del', 'Jissyu6_3Controller@del');
 Route::post('jissyu14/remove', 'Jissyu6_3Controller@remove');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
