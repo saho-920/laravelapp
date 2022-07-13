@@ -158,4 +158,9 @@ Route::get('jissyu15', 'Jissyu6_4Controller@index');
 Route::get('jissyu15/add', 'Jissyu6_4Controller@add');
 Route::post('jissyu15/create', 'Jissyu6_4Controller@create');
 
+// 6_5
+Route::get('jissyu16', 'jissyu6_5Controller@index');
+Route::get('jissyu16/show', 'jissyu6_5ontroller@show');
+
+
 
