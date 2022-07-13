@@ -153,3 +153,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// 6_4
+Route::get('jissyu15', 'Jissyu6_4Controller@index');
+Route::get('jissyu15/add', 'Jissyu6_4Controller@add');
+Route::post('jissyu15/create', 'Jissyu6_4Controller@create');
+
+
