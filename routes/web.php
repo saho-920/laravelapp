@@ -121,7 +121,6 @@ Route::get('jissyu3_2', 'Chapter3_2Controller@index');
 // 岡山情報
 Route::get('ohara','OharaController@index');
 
-<<<<<<< HEAD
 // 5_1
 Route::get('jissyu10', 'Jissyu5_1Controller@index');
 Route::get('jissyu10/show', 'Jissyu5_1Controller@show');
@@ -140,8 +139,28 @@ Route::post('jissyu11/update', 'Jissyu5_2Controller@update');
 Route::get('jissyu11/del', 'Jissyu5_2Controller@del');
 Route::post('jissyu11/remove', 'Jissyu5_2Controller@remove');
 
-=======
+Route::get('jissyu14', 'Jissyu6_3Controller@index');
+Route::post('jissyu14/find', 'Jissyu6_3Controller@find');
+Route::get('jissyu14/show', 'Jissyu6_3Controller@show');
+Route::get('jissyu14/add', 'Jissyu6_3Controller@add');
+Route::post('jissyu14/create', 'Jissyu6_3Controller@create');
+Route::get('jissyu14/edit', 'Jissyu6_3Controller@edit');
+Route::post('jissyu14/update', 'Jissyu6_3Controller@update');
+Route::get('jissyu14/del', 'Jissyu6_3Controller@del');
+Route::post('jissyu14/remove', 'Jissyu6_3Controller@remove');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> text
+
+// 6_4
+Route::get('jissyu15', 'Jissyu6_4Controller@index');
+Route::get('jissyu15/add', 'Jissyu6_4Controller@add');
+Route::post('jissyu15/create', 'Jissyu6_4Controller@create');
+
+// 6_5
+Route::get('jissyu16', 'jissyu6_5Controller@index');
+Route::get('jissyu16/show', 'jissyu6_5ontroller@show');
+
+
+

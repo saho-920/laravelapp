@@ -24,6 +24,17 @@ class Person extends Model
    {
       return $this->hasMany('App\Board');
    }
+   public function subject()
+   {
+      return $this->hasone('App\Subject');
+   }
+
+   public function subjects()
+   {
+      return $this->hasmany('App\Subject');
+   }
+
+
    
 }
 

@@ -5,7 +5,6 @@ class DatabaseSeeder extends Seeder
 {
    public function run()
    {
-       $this->call(RestdataTableSeeder::class);
+       $this->call(SubjectTableSeeder::class);
    }
 }
- 
