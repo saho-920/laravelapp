@@ -1,0 +1,24 @@
+@startuml
+actor ユーザ
+boundary ブラウザ
+control web.php 
+control kouka2_1Controller
+entity Restdata
+boundary index.blade.php 
+boundary show.blade.php
+
+ユーザ->ブラウザ:該当ページをリクエスト[/kouka2_1]
+ブラウザ->web.php:GET[/kuka2_1]
+web.php->kouka2_1Controller:@index
+kouka2_1Controller->Restdata:all()
+kouka2_1Controller<--Restdata:
+kouka2_1Controller->index.blade.php:
+
+ユーザ->ブラウザ:検索ボタンを押下
+ブラウザ->web.php:GET[/kouka2_1/find]
+web.php->kouka2_1Controller:@find
+kouka2_1Controller->Restdata:where()->first()
+kouka2_1Controller<--Restdata:
+kouka2_1Controller->show.blade.php:
+
+@enduml
